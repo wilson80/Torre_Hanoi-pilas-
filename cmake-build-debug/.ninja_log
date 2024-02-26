@@ -1,0 +1,6 @@
+# ninja log v5
+1	171	7306695831825666	build.ninja	f3f470d0642a522b
+3	443	7306694275451115	CMakeFiles/Torre_Hanoi_pilas_.dir/Pila.cpp.obj	c815a92bead4fd56
+443	601	7306694277001487	Torre_Hanoi_pilas_.exe	e15c5b4c205a9515
+21	502	7306694164726774	CMakeFiles/Torre_Hanoi_pilas_.dir/main.cpp.obj	a79c5b98ebff457a
+6	119	7306694160905932	CMakeFiles/Torre_Hanoi_pilas_.dir/crearTorres.cpp.obj	bc3dc94014dda1a4
