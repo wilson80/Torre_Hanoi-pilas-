@@ -14,6 +14,9 @@ private:
 
 public:
     crearTorres();
+    Pila getTorre1();
+    Pila getTorre2();
+    Pila getTorre3();
 
 
 };

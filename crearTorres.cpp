@@ -4,8 +4,6 @@
 
 #include "crearTorres.h"
 
-
-
 crearTorres::crearTorres() {
     torre1 = Pila();
     torre1.apilar(7);
@@ -18,9 +16,16 @@ crearTorres::crearTorres() {
     torre2 = Pila();
     torre3 = Pila();
 
+}
 
-
-
+Pila crearTorres::getTorre1() {
+    return torre1;
+}
+Pila crearTorres::getTorre2() {
+    return torre1;
+}
+Pila crearTorres::getTorre3() {
+    return torre1;
 }
 
 
