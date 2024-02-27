@@ -18,7 +18,9 @@ private:
 public:
     ControlJuego();
     void inicio();
-    void imprimirJuego();
+    void imprimirTorres();
+    void apilarEnTorre(int, int);
+    void desapilarDe(int, int);
     int verificarSeleccion(int);
 
 };

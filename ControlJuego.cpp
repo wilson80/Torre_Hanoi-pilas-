@@ -19,7 +19,7 @@ void ControlJuego::inicio() {
     int colocar_en_Torre;
     int  completado = 0;
     cout<<"__________________HANOI_______________________"<<endl;
-    imprimirJuego();
+    imprimirTorres();
 
     while (completado==0){
         cout<< "seleccionar de torre: 1-2-3: ";
@@ -32,7 +32,6 @@ void ControlJuego::inicio() {
             cout<<"ha seleccionado la torre: "<< seleccionTorre <<endl;
         }
 
-
         cout<< "colocar en Torre: 1-2-3: ";
         cin>>colocar_en_Torre;
         colocar_en_Torre = verificarSeleccion(colocar_en_Torre);
@@ -42,56 +41,55 @@ void ControlJuego::inicio() {
         }else{
             cout<<"ha seleccionado colocar en torre: "<< colocar_en_Torre<<endl;
         }
-
-
+        desapilarDe(seleccionTorre, colocar_en_Torre);
+        imprimirTorres();
     }
     cout<<"Saliendo del Juego";
 
 }
 
-void ControlJuego::imprimirJuego() {
+void ControlJuego::apilarEnTorre(int colocarEn, int datoInsertar) {
+    switch (colocarEn) {
+        case 1:
+            pila1.apilar(datoInsertar);
+            break;
+        case 2:
+            pila2.apilar(datoInsertar);
+            break;
+        case 3:
+            pila3.apilar(datoInsertar);
+            break;
+    }
 
-    pila1.desapilar();
-    pila1.desapilar();
-    pila1.desapilar();
-
-    //    string torre1[7];
-//    string torre2[7];
-//    string torre3[7];
-//
-//
-//
-//
-//
-//    torre1 [0]="      __";
-//    torre1 [1]="     __ __";
-//    torre1 [2]="    __ __ __";
-//    torre1 [3]="   __ __ __ __";
-//    torre1 [4]="  __ __ __ __ __";
-//    torre1 [5]=" __ __ __ __ __ __";
-//    torre1 [6]="__ __ __ __ __ __ __";
-//
-//
-//    for (int i = 0; i < 7; ++i) {
-//        cout << torre1[i] << endl;
-//    }
-
-
-
-
-
-//1
-//2
-//3
-//4
-//5
-//6
-//7
-//
-//
+}
+void ControlJuego::desapilarDe(int seleccion, int colocarEn) {
+    int dato;
+    switch (seleccion) {
+        case 1:
+            dato = pila1.desapilar();
+            apilarEnTorre(colocarEn, dato);
+            break;
+        case 2:
+            dato = pila2.desapilar();
+            apilarEnTorre(colocarEn, dato);
+            break;
+        case 3:
+            dato = pila3.desapilar();
+            apilarEnTorre(colocarEn, dato);
+            break;
+    }
+}
 
 
-
+void ControlJuego::imprimirTorres() {
+    cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout<<"__________________________________________________"<<endl;
+    pila1.imprimirPila();
+    cout<<"__________________________________________________"<<endl;
+    pila2.imprimirPila();
+    cout<<"__________________________________________________"<<endl;
+    pila3.imprimirPila();
+    cout<<"__________________________________________________"<<endl;
 
 }
 

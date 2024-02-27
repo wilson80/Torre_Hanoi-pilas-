@@ -16,11 +16,14 @@ private:
         }
     };
     Nodo * top;
+    int longitud;
 
 public:
     Pila();
     void apilar(int );
-    void desapilar();
+    void imprimirPila();
+    int desapilar();
+    int getLongitud();
 
 };
 

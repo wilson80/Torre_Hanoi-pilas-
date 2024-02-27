@@ -8,20 +8,26 @@ using namespace std;
 
 Pila::Pila() {
     top = nullptr;
+    longitud=0;
 }
 
 void Pila::apilar(int dato) {
     if(top==nullptr){
         Nodo * nodo = new Nodo(dato);
         top = nodo;
+        longitud++;
         return;
     }
     Nodo * nodo = new Nodo(dato);
-
     nodo->siguiente = top;
     top = nodo;
+    longitud++;
 }
-void Pila::desapilar() {
+
+void Pila::imprimirPila() {
+    int * torre [7] = {nullptr};
+
+    string torre0 ="      *";
     string torre1 ="      __";
     string torre2 ="     __ __";
     string torre3 ="    __ __ __";
@@ -30,36 +36,63 @@ void Pila::desapilar() {
     string torre6 =" __ __ __ __ __ __";
     string torre7 ="__ __ __ __ __ __ __";
 
-    cout << "Imprimiendo la Lista " << endl;
-    int contador = 8;
+    int contador = 0;
     Nodo *nodo = top;
-
     while (nodo) {
-        contador--;
         int numeroDisco = nodo->dato;
-        switch (numeroDisco) {
-            case 1:
-                cout << "[" <<contador << "]"<< torre1<< endl;
-            case 2:
-                cout << "[" <<contador << "]"<< torre2<< endl;
-            case 3:
-                cout << "[" <<contador << "]"<< torre3<< endl;
-            case 4:
-                cout << "[" <<contador << "]"<< torre3<< endl;
-            case 5:
-                cout << "[" <<contador << "]"<< torre4<< endl;
-            case 6:
-                cout << "[" <<contador << "]"<< torre5<< endl;
-            case 7:
-                cout << "[" <<contador << "]"<< torre6<< endl;
-
-        }
-
+        torre[contador] = new int(numeroDisco);
+        contador++;
+//        cout<<"dato: " <<numeroDisco << ", ";
         nodo = nodo->siguiente;
-
     }
-    contador = 8
 
+//    cout<<endl;
+    int nivelesVacios =  7-longitud;
+    for (int i = 0; i < nivelesVacios; ++i) {
+            cout << "[" <<i+1<< "]"<< torre0<< endl;
+    }
 
-
+    nivelesVacios++;
+    for (int i = 0; i < 7; ++i) {
+        if(torre[i]!= nullptr) {
+            switch (*torre[i]) {
+                case 1:
+                    cout << "[" << i + nivelesVacios << "]" << torre1 << endl;
+                    break;
+                case 2:
+                    cout << "[" << i + nivelesVacios << "]" << torre2 << endl;
+                    break;
+                case 3:
+                    cout << "[" << i + nivelesVacios << "]" << torre3 << endl;
+                    break;
+                case 4:
+                    cout << "[" << i + nivelesVacios << "]" << torre4 << endl;
+                    break;
+                case 5:
+                    cout << "[" << i + nivelesVacios << "]" << torre5 << endl;
+                    break;
+                case 6:
+                    cout << "[" << i + nivelesVacios << "]" << torre6 << endl;
+                    break;
+                case 7:
+                    cout << "[" << i + nivelesVacios << "]" << torre7 << endl;
+                    break;
+            }
+        }
+    }
+    contador = 0;
 }
+
+int Pila::desapilar() {
+    int dato= top->dato ;
+    if(top!= nullptr){
+        top = top->siguiente;
+        longitud--;
+    }
+    return dato;
+}
+
+int Pila::getLongitud() {
+    return longitud;
+}
+

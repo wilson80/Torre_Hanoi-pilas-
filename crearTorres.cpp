@@ -13,19 +13,19 @@ crearTorres::crearTorres() {
     torre1.apilar(3);
     torre1.apilar(2);
     torre1.apilar(1);
+//    _________
     torre2 = Pila();
     torre3 = Pila();
-
 }
 
 Pila crearTorres::getTorre1() {
     return torre1;
 }
 Pila crearTorres::getTorre2() {
-    return torre1;
+    return torre2;
 }
 Pila crearTorres::getTorre3() {
-    return torre1;
+    return torre3;
 }
 
 
